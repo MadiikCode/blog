@@ -1,0 +1,32 @@
+<!-- templates/notes/add_note.html -->
+{% extends 'base.html' %}
+
+{% block title %}Добавить заметку{% endblock %}
+
+{% block content %}
+    <a href="{% url 'note_list' %}" class="back-btn">← Назад к списку</a>
+    <h2>✏️ Новая заметка</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="form-errors">
+                Исправьте ошибки:
+                {{ form.errors }}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            {{ form.text.label_tag }}
+            {{ form.text }}
+        </div>
+
+        <button type="submit" class="submit-btn">Сохранить</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Мои заметки{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --main-color: #6c5ce7;
+            --bg-gradient: linear-gradient(135deg, #fdfbfb, #ebedee);
+            --card-bg: #ffffffcc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: #2d3436;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            background: var(--card-bg);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--main-color);
+        }
+
+        header p {
+            color: #636e72;
+            margin-top: 0.5rem;
+        }
+
+        .add-btn, .back-btn, .submit-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--main-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .add-btn:hover, .back-btn:hover, .submit-btn:hover {
+            background: #574bd3;
+        }
+
+        .note-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .note-meta {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #dfe6e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--main-color);
+            outline: none;
+            background-color: #fff;
+        }
+
+        .form-errors {
+            background-color: #ffe6e6;
+            color: #d63031;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Мои Заметки</h1>
+            <p>Храни идеи, вдохновение и мысли 💡</p>
+            <a href="{% url 'add_note' %}" class="add-btn">+ Новая заметка</a>
+        </header>
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
