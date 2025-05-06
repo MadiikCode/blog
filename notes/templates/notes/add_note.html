@@ -1,11 +1,10 @@
-<!-- templates/notes/add_note.html -->
 {% extends 'base.html' %}
 
 {% block title %}Добавить заметку{% endblock %}
 
 {% block content %}
     <a href="{% url 'note_list' %}" class="back-btn">← Назад к списку</a>
-    <h2>✏️ Новая заметка</h2>
+    <h2> Новая заметка</h2>
 
     <form method="post">
         {% csrf_token %}

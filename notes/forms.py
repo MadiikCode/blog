@@ -8,11 +8,11 @@ class NoteForm(forms.ModelForm):
         fields = ['title', 'text']
         widgets = {
             'title': forms.TextInput(attrs={
-                'class': 'form-input',  # должен совпадать с CSS-классом
+                'class': 'form-input',
                 'placeholder': 'Название заметки'
             }),
             'text': forms.Textarea(attrs={
-                'class': 'form-textarea',  # должен совпадать с CSS-классом
+                'class': 'form-textarea',
                 'rows': 4
             })
         }

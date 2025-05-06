@@ -5,7 +5,7 @@ from .forms import NoteForm
 
 
 def note_list(request):
-    notes = Note.objects.all()  # Запрос к БД
+    notes = Note.objects.all()
     return render(request, 'notes/list.html', {'notes': notes})
 
 
@@ -14,8 +14,8 @@ def add_note(request):
         form = NoteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('note_list')  # Перенаправляем на список заметок
+            return redirect('note_list')
     else:
-        form = NoteForm()  # Пустая форма для GET-запроса
+        form = NoteForm()
     return render(request, 'notes/add_note.html', {'form': form})
 
